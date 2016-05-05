@@ -2,6 +2,7 @@ public class FiveCardStud
 {
   public static void main(String[] args)
   {
+    int Ncard = Integer.parseInt(args[0]);
     String[] suit = {"Clubs", "Diamonds", "Hearts", "Spades" };
     String[] rank = { "2", "3", "4", "5", "6", "7", "8", "9", "10",
       "Jack", "Queen", "King", "Ace"} ;
@@ -17,7 +18,6 @@ public class FiveCardStud
         }
       }
       
-    
     //Shuffling the deck of cards
     int N = deck.length;
     for (int i = 0; i < N; i++){
@@ -30,8 +30,9 @@ public class FiveCardStud
       deck[i] = deck[r];
       deck[r] = t;
     }
-    for (int k = 0; k < N; k++){
-      System.out.println("Shuffled Card is " + deck[k]);
+    for (int k = 0; k < Ncard; k++){
+      System.out.println(deck[k]);
+      System.out.println();
     }
   }
 }
