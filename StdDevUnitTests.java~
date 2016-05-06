@@ -1,0 +1,12 @@
+public class StdDevUnitTests
+{
+  public static void main(String[] args)
+  {
+    int N = Integer.parseInt(args[0]);
+    double t = { 0.5, 0.3, 0.1, 0.1};
+    for(int i = 0; i < N; i++){
+      StdOut.printf(StdRandom.uniform(100));
+    }
+  }
+}
+      
