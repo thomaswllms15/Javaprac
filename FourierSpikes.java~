@@ -1,0 +1,17 @@
+public class FourierSpikes
+{
+  public static void main(String[] args){
+    int N = Integer.parseInt(args[0]);
+    double[] t = new double[500];
+    int i = 0;
+    int j = -10;
+    while (i <= 500){
+      t[i] = j;
+      j = j + (1/25);
+      i++;
+      StdOut.println(t[i]);
+    }
+  }
+}
+      
+  

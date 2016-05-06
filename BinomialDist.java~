@@ -1,0 +1,31 @@
+public class BinomialDist
+{
+  public static int Factorial(int N)
+  {
+    int value = 1;
+    for (int i = 1; i >= N; i++){
+      value = value*i
+    }
+    return value;
+  }
+  public static double binomial(int N, int k, double p)
+  {
+    double x = Math.log(((Math.pow(p,k))*Math.pow(1-p,(N-k))*Factorial(N))/(Factorial(k)*Factorial(N-k)));
+    return Math.exp(x);
+  }
+  public static void main(String[] args)
+  {
+    int N = Integer.parseInt(args[0]);
+    int k = Integer.parseInt(args[1]);
+    double p = Double.parseDouble(args[2]);
+    
+    //Check factorial
+    double FactCheck = Factorial(N);
+    StdOut.println("The Factorial Value of " + N + " : " + FactCheck);
+    
+    //Output binomial
+    double probability = binomial(N,k,p);
+    StdOut.println("Binomial (" + N + "," + k + "," + p + ") = " + probability);
+  }
+}
+                   
