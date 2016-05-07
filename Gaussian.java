@@ -5,6 +5,12 @@ public class Gaussian
     return Math.exp(-x*x/2) / Math.sqrt(2*Math.PI);
   }
   
+  public static double phi(double x, double mu, double sigma)
+  {
+    return phi((x-mu)/sigma)/sigma;
+    
+  }
+  
   public static double Phi(double z)
   { //cumulative density function
     if (z < -8.0) return 0.0;
@@ -19,12 +25,12 @@ public class Gaussian
     return (0.5 + phi(z) * sum);
   }
   
-  public static void main(String[] args)
+  public static double Phi(double z, double mu, double sigma)
   {
-    double z = Double.parseDouble(args[0]);
-    double mu = Double.parseDouble(args[1]);
-    double sigma = Double.parseDouble(args[2]);
-    StdOut.printf("%.3f\n", Phi((z-mu) / sigma));
+    return Phi((z - mu) / sigma);
   }
+  
+  public static void main(String[] args)
+  {}
 }
   
