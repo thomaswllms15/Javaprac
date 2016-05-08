@@ -65,6 +65,34 @@ public class Matrix
     return b;
   }
   
+  public static double[][] addition(double[][]a, double[][]b)
+  {
+    for(int i = 0; i < a.length; i++){
+      for(int j = 0; j < a[0].length; j++){
+        a[i][j] = a[i][j] + b[i][j];
+      }
+    }
+    return a;
+  }
+  
+  public static double[][] scale(double alpha, double[][] a)
+  {
+    for(int i = 0; i < a.length; i++){
+      for (int j = 0; j < a[0].length; j++){
+        a[i][j] = alpha*a[i][j];
+      }
+    }
+    return a;
+  }
+
+  public static double[] scale(double alpha, double[] a)
+  {
+    for(int i = 0; i < a.length; i++){
+        a[i] = alpha*a[i];
+      }
+    return a;
+  }
+  
   public static void main(String[] args)
   {}
 }

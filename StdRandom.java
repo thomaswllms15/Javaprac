@@ -47,6 +47,19 @@ public class StdRandom
     }
     return a.length - 1;
   }
+  
+  public static double[] shuffle(double[] a)
+  {
+    for (int i = 0; i < a.length; i++)
+    {
+      a[i] = StdIn.readInt();
+    }
+    for(int i = 0; i < a.length; i++){
+      int r = i + (int) (Math.random() * (a.length-i));
+      a[i] = a[r];
+    }
+    return a;
+  }
   public static void main(String[] args)
   {}
 }
