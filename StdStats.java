@@ -50,6 +50,12 @@ public class StdStats
     return Math.sqrt(var(a));
   }
   
+  public static long factorial(int N){
+    if (N == 1){ 
+      return 1;}
+    return N * factorial(N-1);
+  }
+  
   public static void plotPoints(double[] a)
   {
     int N = a.length; 
