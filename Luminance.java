@@ -51,6 +51,24 @@ public class Luminance
     return Math.abs(lum(a) - lum(b)) >= 128;
   }
   
+  public static Color EdgeDetect(Color a, Color b)
+  {
+    //pull grayscale values then shift to black or white
+    //create an integer to create a new color from according to the delta.
+    int r = GrayScaleValue(a);
+    int s = GrayScaleValue(b);
+    int p = 0;
+    
+    if(Math.abs(r - s) > .4 * 255){
+      p = 0;
+    }
+    else {
+      p = 255;
+    }
+    Color edge = new Color(p,p,p);
+    return edge;
+  }
+  
   public static void main(String[] args)
   {
     int[] a = new int[6];

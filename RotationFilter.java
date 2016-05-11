@@ -1,5 +1,3 @@
-import java.awt.Color;
-
 public class RotationFilter
 {
   public static void main(String[] args)
