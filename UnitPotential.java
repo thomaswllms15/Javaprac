@@ -31,12 +31,12 @@ public class UnitPotential
         while (y < 1){
           double p = c[i].potentialAt(x,y);
           y = y + 0.01;
-          x = x + 0.01;
           if(p < min){
             min = p;
             x_location = x;
             y_location = y;
           }
+          x = x + 0.01;
         }
       }
     }
