@@ -10,10 +10,18 @@ public class Material
     mu = mu_ratio;
   }
   
+  public double G()
+  { // return the shear modulus G
+    return (E / (2 * (1 + mu)));
+  }
+  
+  public double K()
+  { //return the bulk modulus K
+    return (E / (3 * (1 - 2 * mu)));
+  }
+  
   public double[][] StressTensorIsotropic3D()
-  {
-    //read in an input a stress vector sigma, generate stress tensor,
-    //output the strain matrix.
+  {//Generate Stress Tensor for isotropic material, 3 directional (cartesian)
     double[][] s = new double[6][6];
     
     for (int i = 0; i < 3; i++)
@@ -53,8 +61,37 @@ public class Material
         }
       }
     }
-    
     return s;
   }
-}
   
+  public double[] sigma(double[] strain)
+  {
+    if(strain.length != 6)
+    {
+      throw new RuntimeException("Stress Vector not long enough!");
+    }
+    
+    double[][] tensor = this.StressTensorIsotropic3D();
+    double[] sigma = new double[6];
+    double sum = 0.0;
+    
+    for (int i = 0; i < 3; i++)
+    {
+      for(int j = 0; j < 6; j++)
+      {
+        sum += tensor[i][j]*strain[j];
+      }
+      sigma[i] = sum;
+    }
+
+    for (int i = 3; i < 6; i++)
+    {
+      for(int j = 0; j < 6; j++)
+      {
+        sum += tensor[i][j]*strain[j];
+      }
+      sigma[i] = 0.5 * sum;
+    }
+    return strain;
+  }
+}
