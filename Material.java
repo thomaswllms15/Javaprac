@@ -1,6 +1,6 @@
 public class Material
 {
-  //Put in as many equations as you can using these sole properties of the material
+  //Put in as many equations as you can using these properties of the material
   private final double E; // Youngs Modulus (stress to strain ratio)
   private final double mu; // Poisson Ratio (axial to traverse strain ratio)
   
@@ -82,6 +82,7 @@ public class Material
         sum += tensor[i][j]*strain[j];
       }
       sigma[i] = sum;
+      sum = 0.0;
     }
 
     for (int i = 3; i < 6; i++)
