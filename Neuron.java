@@ -51,13 +51,8 @@ public class Neuron
       
       for(int i = 0; i < input.length; i++)
       {
-        if(y_true == y_hat)
-        { //if you get the true value = to your calculated, no change for weights
-          w[i] = w[i];
-        }
-        else
-          //adjust weight according to the learning rate, the delta, and the input
-          w[i] = w[i] + (nu * (y_true - y_hat) * input[i]);
+        //adjust weight according to the learning rate, the delta, and the input
+        w[i] = w[i] + (nu * (y_true - y_hat) * input[i]);
       }
       //update values, iterate again
       z_hat = z(w);
