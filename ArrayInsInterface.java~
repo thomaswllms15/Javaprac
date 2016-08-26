@@ -1,0 +1,8 @@
+public class ArrayInsInterface
+{
+  public static void main(String[] args)
+  {
+    int maxSize = 100;
+    arrayIns arr = new ArrayIns(maxSize);
+  }
+}
