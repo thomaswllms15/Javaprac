@@ -1,12 +1,24 @@
 var wordToSolve = prompt("Please give a word to solve.");
+wordToSolve = wordToSolve.toUpperCase();
 var NumberOfWrongs = 5;
 
+
+//add exception throws and maybe a guesser (pick a random letter)
 var guess = function()
 {
     var yourguess = prompt("Guess a letter A - Z");
+    yourguess - yourguess.toUpperCase();
     if(yourguess.length != 1)
 	{
 		console.log("Input should be 1 letter! Guess again.");
+		yourguess = guess();
+	}
+	if(yourguess !== "A" || "B" || "C" || "D" || "E" || "D"
+		|| "E" || "F" || "G" || "H" || "I" || "J" || "K" || "L"
+		|| "M" || "N" || "O" || "P" || "Q" || "R" || "S" ||"T"
+		|| "U" || "V" || "W" || "X" || "Y" || "Z")
+	{
+		console.log("Please choose a letter from the alphabet!");
 		yourguess = guess();
 	}
 
@@ -41,7 +53,8 @@ var solver = function(wordToSolve, NumberOfWrongs)
         if(checker === false)
         {
             losscounter++;
-            console.log(losscounter);
+            console.log("Incorrect! " + (NumberOfWrongs-losscounter)
+            + "guesses left");
 		}
         checker = false;            
         if(losscounter === NumberOfWrongs)
